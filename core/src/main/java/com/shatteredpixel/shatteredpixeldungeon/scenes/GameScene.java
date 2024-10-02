@@ -149,9 +149,29 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Locale;
 
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameState;
+
 public class GameScene extends PixelScene {
 
 	static GameScene scene;
+
+	public GameState getCurrentGameState() {
+		GameState state = new GameState();
+		state.heroPosition = Dungeon.hero.pos;
+		state.heroHealth = Dungeon.hero.HP;
+		state.heroMaxHealth = Dungeon.hero.HT;
+		state.level = Dungeon.depth;
+		state.visibleMobs = new ArrayList<>();
+		for (Mob mob : Dungeon.level.mobs) {
+			if (Dungeon.level.heroFOV[mob.pos]) {
+				//state.visibleMobs.add(new MobInfo(mob.pos, mob.HP, mob.HT));
+			}
+		System.out.print(GridTileMap getVisualGrid() { return scene.visualGrid; })
+    }
+    // Add more relevant information as needed
+    return state;
+}
 
 	private SkinnedBlock water;
 	private DungeonTerrainTilemap tiles;
